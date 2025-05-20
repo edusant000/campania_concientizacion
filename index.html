@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaña de Concientización sobre Phishing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif; /* Fallback font stack */
+        }
+        /* CSS para <details> y <summary> como acordeones */
+        .group summary {
+            cursor: pointer;
+            list-style: none; /* Remove default marker */
+        }
+        .group summary::-webkit-details-marker { /* Hide marker in Chrome/Safari */
+            display: none;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out, margin-top 0.4s ease-in-out;
+            padding: 0 1rem;
+        }
+        .group[open] > summary .accordion-arrow { /* Target arrow when details is open */
+            transform: rotate(180deg);
+        }
+        .group[open] > .accordion-content { /* Target content when details is open */
+            max-height: 100vh; /* Allow content to define height, 100vh is a large enough value */
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-top: 0.5rem;
+        }
+        .accordion-arrow {
+            transition: transform 0.3s ease-out;
+        }
+        /* Active state for nav links, managed by JS */
+        .nav-link.active {
+            font-weight: bold;
+            color: #fde047; /* Tailwind yellow-300 */
+            /* background-color and text-color for active state are toggled by JS */
+        }
+    </style>
+</head>
+<body class="bg-gray-200 text-gray-800 font-sans scroll-smooth">
+
+    <header class="bg-slate-800 text-white p-5 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+            <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-0">Concientización sobre Phishing</h1>
+            <nav role="tablist" aria-label="Niveles de concientización">
+                <ul class="flex space-x-3 sm:space-x-5">
+                    <li><a href="#nivel1" role="tab" aria-controls="nivel1-content" aria-selected="false" class="nav-link text-sm sm:text-base px-2 py-1 rounded-md hover:text-yellow-300">Nivel 1: Básico</a></li>
+                    <li><a href="#nivel2" role="tab" aria-controls="nivel2-content" aria-selected="false" class="nav-link text-sm sm:text-base px-2 py-1 rounded-md hover:text-yellow-300">Nivel 2: Intermedio</a></li>
+                    <li><a href="#nivel3" role="tab" aria-controls="nivel3-content" aria-selected="false" class="nav-link text-sm sm:text-base px-2 py-1 rounded-md hover:text-yellow-300">Nivel 3: Avanzado</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
+
+        <section id="nivel1" role="tabpanel" aria-labelledby="nivel1-tab" class="mb-16">
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                <div class="p-6 sm:p-8 bg-red-600 text-white flex items-center space-x-4">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl">
+                        Nivel 1: ¡Alerta Phishing! Protege tu Información
+                    </h2>
+                </div>
+                <div id="nivel1-content" class="p-6 sm:p-8 space-y-8">
+                    <div>
+                        <h3 class="flex items-center text-xl sm:text-2xl font-semibold text-slate-700 mb-4">
+                            <svg class="w-7 h-7 text-red-500 mr-3" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.67-1.34l.04-.022ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z" clip-rule="evenodd" /></svg>
+                            <span>¿Qué es el Phishing?</span>
+                        </h3>
+                        <p class="text-gray-700 text-base sm:text-lg leading-relaxed ml-10">
+                            El phishing es cuando alguien finge ser una empresa o persona conocida para engañarte y <span class="text-red-700 font-bold">robarte información personal</span>, como contraseñas o datos bancarios. Puede llegar por correo, mensaje de texto, WhatsApp o incluso llamadas.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="flex items-center text-xl sm:text-2xl font-semibold text-slate-700 mb-4">
+                            <svg class="w-7 h-7 text-red-500 mr-3" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" /></svg>
+                            <span>¿Cómo reconocer un mensaje falso? ¡Revisa esto!</span>
+                        </h3>
+                        <ul class="list-none p-0 space-y-3 ml-10">
+                            <li class="flex items-start p-3 bg-red-50 rounded-lg border-l-4 border-red-500 shadow-sm"><svg class="w-6 h-6 text-red-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> <span class="text-gray-700">¿El mensaje te pide <strong class="font-semibold">“urgente”</strong> que actualices algo?</span></li>
+                            <li class="flex items-start p-3 bg-red-50 rounded-lg border-l-4 border-red-500 shadow-sm"><svg class="w-6 h-6 text-red-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> <span class="text-gray-700">¿Te dice que <strong class="font-semibold">ganaste un premio</strong> que no pediste?</span></li>
+                            <li class="flex items-start p-3 bg-red-50 rounded-lg border-l-4 border-red-500 shadow-sm"><svg class="w-6 h-6 text-red-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> <span class="text-gray-700">¿Ves <strong class="font-semibold">errores ortográficos</strong> o cosas que no cuadran?</span></li>
+                            <li class="flex items-start p-3 bg-red-50 rounded-lg border-l-4 border-red-500 shadow-sm"><svg class="w-6 h-6 text-red-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> <span class="text-gray-700">¿El número o correo del <strong class="font-semibold">remitente te parece raro</strong>?</span></li>
+                        </ul>
+                        <p class="text-gray-600 text-center italic mt-4 text-sm sm:text-base">Si algo te parece sospechoso, probablemente lo sea.</p>
+                    </div>
+
+                    <details class="group">
+                        <summary class="accordion-button w-full text-left bg-green-600 hover:bg-green-700 text-white font-semibold text-lg sm:text-xl p-4 rounded-lg flex justify-between items-center transition-all duration-200 shadow-md hover:shadow-lg">
+                            <span class="flex items-center">
+                                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                ¿Qué puedes hacer para protegerte?
+                            </span>
+                            <svg class="accordion-arrow w-6 h-6 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <ul class="accordion-content bg-green-50 border border-green-200 rounded-b-lg shadow-inner list-none p-0 space-y-3">
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Activa la <strong>verificación en dos pasos</strong> en tus cuentas importantes.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>No hagas clic en enlaces raros</strong>, especialmente si son “urgentes” o “premios”.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>Habla con alguien de confianza</strong> si no estás seguro.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>Revisa bien el remitente</strong> del mensaje o correo.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>Nunca compartas tus contraseñas</strong> o códigos de verificación.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Usa <strong>contraseñas diferentes y seguras</strong> para cada cuenta.</span></li>
+                        </ul>
+                    </details>
+
+                    <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 sm:p-6 rounded-lg shadow">
+                        <h3 class="font-bold text-lg sm:text-xl mb-3 flex items-center">
+                            <svg class="w-6 h-6 text-yellow-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-2.478 9.168-6M2.75 7.25l3.86 3.86"></path></svg>
+                            Frases clave para compartir
+                        </h3>
+                        <div class="space-y-1 text-sm sm:text-base ml-9">
+                            <p>“Si suena demasiado bueno para ser cierto… ¡es una trampa!”</p>
+                            <p>“No des clic sin pensar. ¡Verifica antes de actuar!”</p>
+                            <p>“Tu banco nunca te pedirá tu contraseña por mensaje. ¡Desconfía!”</p>
+                            <p>“Hablar sobre phishing es cuidar a tu familia.”</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="flex items-center text-xl sm:text-2xl font-semibold text-slate-700 mb-4">
+                            <svg class="w-7 h-7 text-orange-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.755 4 3.92C16 13.09 14.828 15 12 15c-1.105 0-2.006-.456-2.006-1.009A1.009 1.009 0 0110.994 13c.617 0 .994-.447.994-1.093m0 3.003a3.003 3.003 0 01-2.122 2.122M7 12a5 5 0 0110 0v1a5 5 0 01-10 0v-1zm0 0H5.032A2.25 2.25 0 012.75 10.5V8.75c0-1.036.84-1.875 1.875-1.875h14.75c1.036 0 1.875.84 1.875 1.875v1.75a2.25 2.25 0 01-2.282 2.246M7.5 12h9M7.5 15h9"></path></svg>
+                            <span>¿Y si ya caí en la trampa?</span>
+                        </h3>
+                        <ol class="list-decimal list-inside space-y-2 text-gray-700 text-base sm:text-lg leading-relaxed pl-4 ml-10">
+                            <li>Cambia tu contraseña de inmediato.</li>
+                            <li>Llama a tu banco o servicio para reportar el problema.</li>
+                            <li>Si fue por correo, márcalo como phishing o spam.</li>
+                            <li>Aprende de la experiencia y cuéntaselo a otros.</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-blue-100 text-blue-800 p-4 sm:p-6 rounded-lg shadow-md border-t-4 border-blue-500">
+                        <p class="font-semibold text-base sm:text-lg leading-relaxed text-center flex items-center justify-center">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Recuerda: La mejor defensa contra el phishing es la información. Cuida tus datos como cuidas tu casa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nivel2" role="tabpanel" aria-labelledby="nivel2-tab" class="mb-16">
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                <div class="p-6 sm:p-8 bg-amber-600 text-white flex items-center space-x-4">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 6c-.77-1.333-2.694-1.333-3.464 0L3.34 18c-.77 1.333.192 3 1.732 3zM12 9v3"></path></svg>
+                    <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl">
+                        Nivel 2: Refuerza tu Seguridad Digital – No Bajes la Guardia
+                    </h2>
+                </div>
+                <div id="nivel2-content" class="p-6 sm:p-8 space-y-8">
+                    <div>
+                        <h3 class="flex items-center text-xl sm:text-2xl font-semibold text-slate-700 mb-4">
+                            <svg class="w-7 h-7 text-amber-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            <span>Ya sabes algo sobre phishing… pero los riesgos no desaparecen</span>
+                        </h3>
+                        <p class="text-gray-700 text-base sm:text-lg leading-relaxed ml-10">
+                            Sabes que hay engaños en internet y que no debes confiar en cualquier enlace, pero los métodos de los estafadores cambian todo el tiempo. Esta campaña es para ti, que ya tienes conocimientos básicos, pero puedes reforzar tus hábitos para estar aún más protegido.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="flex items-center text-xl sm:text-2xl font-semibold text-slate-700 mb-4">
+                            <svg class="w-7 h-7 text-orange-500 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" /></svg>
+                            <span>¿Dónde suelen fallar incluso quienes ya conocen el phishing?</span>
+                        </h3>
+                        <ul class="list-none p-0 space-y-3 ml-10">
+                            <li class="flex items-start p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500 shadow-sm"><svg class="w-6 h-6 text-orange-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 14.95a1 1 0 001.414 1.414l.707-.707a1 1 0 00-1.414-1.414l-.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 3c.134 0 .26.02.378.055A1 1 0 0113 4.43V5h-2V4.43a1 1 0 011-.375A.993.993 0 0112 3z"></path><path d="M7 5c-.134 0-.26-.02-.378-.055A1 1 0 006 4.43V5H4V4.43a1 1 0 001-.375A.993.993 0 005 3C5 1.895 5.895 1 7 1s2 .895 2 2v2H7V5z"></path></svg> <span class="text-gray-700"><strong>Confiar en mensajes que parecen legítimos:</strong> Algunos correos y mensajes falsos copian logos, nombres y estilos de empresas reales. A veces cuesta distinguirlos.</span></li>
+                            <li class="flex items-start p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500 shadow-sm"><svg class="w-6 h-6 text-orange-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 14.95a1 1 0 001.414 1.414l.707-.707a1 1 0 00-1.414-1.414l-.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 3c.134 0 .26.02.378.055A1 1 0 0113 4.43V5h-2V4.43a1 1 0 011-.375A.993.993 0 0112 3z"></path><path d="M7 5c-.134 0-.26-.02-.378-.055A1 1 0 006 4.43V5H4V4.43a1 1 0 001-.375A.993.993 0 005 3C5 1.895 5.895 1 7 1s2 .895 2 2v2H7V5z"></path></svg> <span class="text-gray-700"><strong>No tener activa la verificación en dos pasos (2FA):</strong> Solo tener una contraseña no es suficiente.</span></li>
+                            <li class="flex items-start p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500 shadow-sm"><svg class="w-6 h-6 text-orange-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 14.95a1 1 0 001.414 1.414l.707-.707a1 1 0 00-1.414-1.414l-.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 3c.134 0 .26.02.378.055A1 1 0 0113 4.43V5h-2V4.43a1 1 0 011-.375A.993.993 0 0112 3z"></path><path d="M7 5c-.134 0-.26-.02-.378-.055A1 1 0 006 4.43V5H4V4.43a1 1 0 001-.375A.993.993 0 005 3C5 1.895 5.895 1 7 1s2 .895 2 2v2H7V5z"></path></svg> <span class="text-gray-700"><strong>Hacer clic en enlaces sin revisar la dirección completa:</strong> Un dominio falso puede parecer legítimo.</span></li>
+                        </ul>
+                    </div>
+
+                    <details class="group">
+                        <summary class="accordion-button w-full text-left bg-green-600 hover:bg-green-700 text-white font-semibold text-lg sm:text-xl p-4 rounded-lg flex justify-between items-center transition-all duration-200 shadow-md hover:shadow-lg">
+                            <span class="flex items-center">
+                               <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                Mejora tu seguridad con estos pasos:
+                            </span>
+                            <svg class="accordion-arrow w-6 h-6 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <ul class="accordion-content bg-green-50 border border-green-200 rounded-b-lg shadow-inner list-none p-0 space-y-3">
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Activa la <strong>verificación en dos pasos (2FA)</strong> en tus cuentas principales.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>Verifica siempre el remitente</strong> de correos y mensajes. Ante la duda, no abras.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>No compartas tus contraseñas o códigos</strong> por mensajes o llamadas.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>Revisa bien los enlaces</strong> antes de hacer clic. Si dudas, entra directo al sitio oficial.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>Cambia tus contraseñas</strong> de vez en cuando y no uses la misma en todos lados.</span></li>
+                        </ul>
+                    </details>
+                    
+                    <div>
+                        <h3 class="flex items-center text-xl sm:text-2xl font-semibold text-slate-700 mb-4">
+                           <svg class="w-7 h-7 text-purple-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4M12 20v-2M4.929 4.929l1.414 1.414M17.657 17.657l1.414 1.414M20 12h-2M6 12H4M4.929 19.071l1.414-1.414M17.657 6.343l1.414-1.414"></path></svg>
+                            <span>Desafíos para mejorar tu seguridad digital</span>
+                        </h3>
+                        <ul class="list-none p-0 space-y-3 ml-10">
+                            <li class="flex items-start p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500 shadow-sm"><svg class="w-6 h-6 text-purple-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.75 1.953A1 1 0 009.25.953h-.5A1 1 0 007.8 1.882l-.31.93A1.5 1.5 0 006.005 4.2l-.993-.248a1 1 0 00-1.158.663l-.346.988a1 1 0 00.53 1.254l.768.432A1.501 1.501 0 004.5 8.5v.002A1.5 1.5 0 005.25 10l-.768.432a1 1 0 00-.53 1.254l.346.988a1 1 0 001.158.663l.993-.248a1.5 1.5 0 001.484 1.435l.31.93a1 1 0 00.953.93h.5a1 1 0 00.953-.93l.31-.93a1.5 1.5 0 001.485-1.435l.993.248a1 1 0 001.158-.663l.346-.988a1 1 0 00-.53-1.254l-.768-.432A1.5 1.5 0 0015.5 10V8.518a1.5 1.5 0 00-.75-.018L15.5 8.5a1.5 1.5 0 00.75-1.368l.768-.432a1 1 0 00.53-1.254l-.346-.988a1 1 0 00-1.158-.663l-.993.248A1.5 1.5 0 0013.995 2.8l-.31-.93A1 1 0 0012.732.953h-.5a1 1 0 00-.953.93L10.75 1.953zM10 6.5A1.5 1.5 0 1010 9.5A1.5 1.5 0 0010 6.5z"></path></svg> <span class="text-gray-700"><strong>Reto 1 – Activa tu escudo:</strong> Asegúrate de tener la verificación en dos pasos en todas tus cuentas importantes.</span></li>
+                            <li class="flex items-start p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500 shadow-sm"><svg class="w-6 h-6 text-purple-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.75 1.953A1 1 0 009.25.953h-.5A1 1 0 007.8 1.882l-.31.93A1.5 1.5 0 006.005 4.2l-.993-.248a1 1 0 00-1.158.663l-.346.988a1 1 0 00.53 1.254l.768.432A1.501 1.501 0 004.5 8.5v.002A1.5 1.5 0 005.25 10l-.768.432a1 1 0 00-.53 1.254l.346.988a1 1 0 001.158.663l.993-.248a1.5 1.5 0 001.484 1.435l.31.93a1 1 0 00.953.93h.5a1 1 0 00.953-.93l.31-.93a1.5 1.5 0 001.485-1.435l.993.248a1 1 0 001.158-.663l.346-.988a1 1 0 00-.53-1.254l-.768-.432A1.5 1.5 0 0015.5 10V8.518a1.5 1.5 0 00-.75-.018L15.5 8.5a1.5 1.5 0 00.75-1.368l.768-.432a1 1 0 00.53-1.254l-.346-.988a1 1 0 00-1.158-.663l-.993.248A1.5 1.5 0 0013.995 2.8l-.31-.93A1 1 0 0012.732.953h-.5a1 1 0 00-.953.93L10.75 1.953zM10 6.5A1.5 1.5 0 1010 9.5A1.5 1.5 0 0010 6.5z"></path></svg> <span class="text-gray-700"><strong>Reto 2 – Apoya a alguien cercano:</strong> Ayuda a una persona de tu familia o comunidad a protegerse.</span></li>
+                            <li class="flex items-start p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500 shadow-sm"><svg class="w-6 h-6 text-purple-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.75 1.953A1 1 0 009.25.953h-.5A1 1 0 007.8 1.882l-.31.93A1.5 1.5 0 006.005 4.2l-.993-.248a1 1 0 00-1.158.663l-.346.988a1 1 0 00.53 1.254l.768.432A1.501 1.501 0 004.5 8.5v.002A1.5 1.5 0 005.25 10l-.768.432a1 1 0 00-.53 1.254l.346.988a1 1 0 001.158.663l.993-.248a1.5 1.5 0 001.484 1.435l.31.93a1 1 0 00.953.93h.5a1 1 0 00.953-.93l.31-.93a1.5 1.5 0 001.485-1.435l.993.248a1 1 0 001.158-.663l.346-.988a1 1 0 00-.53-1.254l-.768-.432A1.5 1.5 0 0015.5 10V8.518a1.5 1.5 0 00-.75-.018L15.5 8.5a1.5 1.5 0 00.75-1.368l.768-.432a1 1 0 00.53-1.254l-.346-.988a1 1 0 00-1.158-.663l-.993.248A1.5 1.5 0 0013.995 2.8l-.31-.93A1 1 0 0012.732.953h-.5a1 1 0 00-.953.93L10.75 1.953zM10 6.5A1.5 1.5 0 1010 9.5A1.5 1.5 0 0010 6.5z"></path></svg> <span class="text-gray-700"><strong>Reto 3 – Analiza los correos:</strong> Revisa esta semana los correos sospechosos. ¿Detectaste algún engaño?</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-teal-100 border-l-4 border-teal-500 text-teal-800 p-4 sm:p-6 rounded-lg shadow">
+                        <h3 class="font-bold text-lg sm:text-xl mb-3 flex items-center">
+                            <svg class="w-6 h-6 text-teal-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+                            Frases clave para compartir:
+                        </h3>
+                        <div class="space-y-1 text-sm sm:text-base ml-9">
+                            <p>“Una contraseña fuerte no basta. Usa también verificación en dos pasos.”</p>
+                            <p>“Desconfía de mensajes urgentes o que te piden datos personales.”</p>
+                            <p>“Si no estás seguro de un enlace, mejor no hagas clic.”</p>
+                            <p>“Compartir esta información con tu familia también los protege.”</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-100 text-blue-800 p-4 sm:p-6 rounded-lg shadow-md border-t-4 border-blue-500">
+                        <p class="font-semibold text-base sm:text-lg leading-relaxed text-center flex items-center justify-center">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Conclusión: La seguridad digital es como un hábito: se construye poco a poco. Refuerza lo que sabes y ayuda a otros.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="nivel3" role="tabpanel" aria-labelledby="nivel3-tab" class="mb-16">
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden">
+                <div class="p-6 sm:p-8 bg-purple-700 text-white flex items-center space-x-4">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 5V3m0 18v-2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M5.64 5.64l-1.42 1.42M19.78 19.78l-1.42-1.42M12 12l6-6M6 18l6-6"></path></svg>
+                    <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl">
+                        Nivel 3: Fortalece tu Postura Digital – Phishing Avanzado
+                    </h2>
+                </div>
+                <div id="nivel3-content" class="p-6 sm:p-8 space-y-8">
+                    <div>
+                        <h3 class="flex items-center text-xl sm:text-2xl font-semibold text-slate-700 mb-4">
+                            <svg class="w-7 h-7 text-purple-600 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a1 1 0 100-2h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd" /></svg>
+                            <span>Aunque tengas una buena higiene digital, es importante recordar que:</span>
+                        </h3>
+                        <ul class="list-none p-0 space-y-3 ml-10">
+                            <li class="flex items-start p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500 shadow-sm"><svg class="w-6 h-6 text-purple-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6z"></path><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-1.414 1.414A5.008 5.008 0 0014 10a5 5 0 10-5 5c.078 0 .155-.002.232-.006a.75.75 0 01.752 1.28A6.5 6.5 0 1110 3.5a6.473 6.473 0 013.293 1.018l1.414-1.414a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">El phishing ha evolucionado hacia técnicas más <strong>sofisticadas y personalizadas</strong> (Spear phishing, pretexting, vishing).</span></li>
+                            <li class="flex items-start p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500 shadow-sm"><svg class="w-6 h-6 text-purple-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6z"></path><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-1.414 1.414A5.008 5.008 0 0014 10a5 5 0 10-5 5c.078 0 .155-.002.232-.006a.75.75 0 01.752 1.28A6.5 6.5 0 1110 3.5a6.473 6.473 0 013.293 1.018l1.414-1.414a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">El <strong>contexto emocional</strong> sigue siendo una debilidad explotable (estrés, cambios, eventos).</span></li>
+                            <li class="flex items-start p-3 bg-purple-50 rounded-lg border-l-4 border-purple-500 shadow-sm"><svg class="w-6 h-6 text-purple-600 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6z"></path><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-1.414 1.414A5.008 5.008 0 0014 10a5 5 0 10-5 5c.078 0 .155-.002.232-.006a.75.75 0 01.752 1.28A6.5 6.5 0 1110 3.5a6.473 6.473 0 013.293 1.018l1.414-1.414a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Las técnicas de <strong>spoofing y manipulación de encabezados</strong> son difíciles de detectar.</span></li>
+                        </ul>
+                    </div>
+
+                    <details class="group">
+                        <summary class="accordion-button w-full text-left bg-green-600 hover:bg-green-700 text-white font-semibold text-lg sm:text-xl p-4 rounded-lg flex justify-between items-center transition-all duration-200 shadow-md hover:shadow-lg">
+                            <span class="flex items-center">
+                                <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                Buenas prácticas para mantener una defensa robusta
+                            </span>
+                            <svg class="accordion-arrow w-6 h-6 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <ul class="accordion-content bg-green-50 border border-green-200 rounded-b-lg shadow-inner list-none p-0 space-y-3">
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Aplica <strong>segmentación de contraseñas</strong> y considera hardware tokens.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">No confíes solo en el diseño visual; <strong>verifica encabezados SMTP</strong> y metadatos.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>Desconfía de urgencias externas</strong>, incluso de conocidos; valida por otro medio.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Configura <strong>alertas por actividad inusual</strong> y revisa registros periódicamente.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-green-500"><svg class="w-5 h-5 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Participa en <strong>simulacros o laboratorios de phishing</strong>.</span></li>
+                        </ul>
+                    </details>
+
+                    <details class="group">
+                        <summary class="accordion-button w-full text-left bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-lg sm:text-xl p-4 rounded-lg flex justify-between items-center transition-all duration-200 shadow-md hover:shadow-lg">
+                            <span class="flex items-center">
+                               <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Acciones recomendadas (nivel experto)
+                            </span>
+                            <svg class="accordion-arrow w-6 h-6 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </summary>
+                        <ul class="accordion-content bg-indigo-50 border border-indigo-200 rounded-b-lg shadow-inner list-none p-0 space-y-3">
+                            <li class="flex items-start p-3 border-l-4 border-indigo-500"><svg class="w-5 h-5 text-indigo-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path><path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.18l3.75-7.03A1.65 1.65 0 016.03.065h7.94a1.65 1.65 0 011.615 2.318l3.75 7.03a1.65 1.65 0 010 1.18l-3.75 7.03A1.65 1.65 0 0113.97 19.935H6.03a1.65 1.65 0 01-1.615-2.318l-3.75-7.03zm1.615-1.18a.15.15 0 000 .118l3.75 7.03a.15.15 0 00.147.218h7.94a.15.15 0 00.147-.218l3.75-7.03a.15.15 0 000-.118l-3.75-7.03a.15.15 0 00-.147-.218H6.03a.15.15 0 00-.147.218l-3.75 7.03z" clip-rule="evenodd"></path></svg> <span class="text-gray-700"><strong>Auditoría mensual</strong> de cuentas y contraseñas.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-indigo-500"><svg class="w-5 h-5 text-indigo-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path><path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.18l3.75-7.03A1.65 1.65 0 016.03.065h7.94a1.65 1.65 0 011.615 2.318l3.75 7.03a1.65 1.65 0 010 1.18l-3.75 7.03A1.65 1.65 0 0113.97 19.935H6.03a1.65 1.65 0 01-1.615-2.318l-3.75-7.03zm1.615-1.18a.15.15 0 000 .118l3.75 7.03a.15.15 0 00.147.218h7.94a.15.15 0 00.147-.218l3.75-7.03a.15.15 0 000-.118l-3.75-7.03a.15.15 0 00-.147-.218H6.03a.15.15 0 00-.147.218l-3.75 7.03z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Usa <strong>gestores de contraseñas</strong> con funciones de auditoría.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-indigo-500"><svg class="w-5 h-5 text-indigo-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path><path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.18l3.75-7.03A1.65 1.65 0 016.03.065h7.94a1.65 1.65 0 011.615 2.318l3.75 7.03a1.65 1.65 0 010 1.18l-3.75 7.03A1.65 1.65 0 0113.97 19.935H6.03a1.65 1.65 0 01-1.615-2.318l-3.75-7.03zm1.615-1.18a.15.15 0 000 .118l3.75 7.03a.15.15 0 00.147.218h7.94a.15.15 0 00.147-.218l3.75-7.03a.15.15 0 000-.118l-3.75-7.03a.15.15 0 00-.147-.218H6.03a.15.15 0 00-.147.218l-3.75 7.03z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Activa <strong>filtros avanzados de correo y sandboxing</strong>.</span></li>
+                            <li class="flex items-start p-3 border-l-4 border-indigo-500"><svg class="w-5 h-5 text-indigo-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path><path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.18l3.75-7.03A1.65 1.65 0 016.03.065h7.94a1.65 1.65 0 011.615 2.318l3.75 7.03a1.65 1.65 0 010 1.18l-3.75 7.03A1.65 1.65 0 0113.97 19.935H6.03a1.65 1.65 0 01-1.615-2.318l-3.75-7.03zm1.615-1.18a.15.15 0 000 .118l3.75 7.03a.15.15 0 00.147.218h7.94a.15.15 0 00.147-.218l3.75-7.03a.15.15 0 000-.118l-3.75-7.03a.15.15 0 00-.147-.218H6.03a.15.15 0 00-.147.218l-3.75 7.03z" clip-rule="evenodd"></path></svg> <span class="text-gray-700">Establece un <strong>protocolo personal ante incidentes</strong>.</span></li>
+                        </ul>
+                    </details>
+
+                    <div class="bg-pink-100 border-l-4 border-pink-500 text-pink-800 p-4 sm:p-6 rounded-lg shadow">
+                        <h3 class="font-bold text-lg sm:text-xl mb-3 flex items-center">
+                            <svg class="w-6 h-6 text-pink-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            Frases clave para compartir en redes o foros especializados
+                        </h3>
+                        <div class="space-y-1 text-sm sm:text-base ml-9">
+                            <p>“El phishing no es un correo mal escrito. Es ingeniería social precisa y adaptativa.”</p>
+                            <p>“Incluso los usuarios avanzados son objetivos prioritarios. El exceso de confianza es una vulnerabilidad.”</p>
+                            <p>“Tu defensa digital no se basa en saber qué hacer, sino en hacerlo cada vez que importa.”</p>
+                            <p>“Las estadísticas lo confirman: el 90% de los incidentes comienzan con un solo clic.”</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-100 text-blue-800 p-4 sm:p-6 rounded-lg shadow-md border-t-4 border-blue-500">
+                        <p class="font-semibold text-base sm:text-lg leading-relaxed text-center flex items-center justify-center">
+                           <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Cierre: La ciberseguridad no es un estado, sino un proceso. Automatiza, revisa y comparte. Una red segura se construye entre todos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center text-gray-600 p-8 bg-gray-300 mt-12 border-t border-gray-400">
+        <p class="text-sm">&copy; <span id="currentYear"></span> Campaña de Concientización sobre Phishing. Material Educativo.</p>
+        <p class="text-xs mt-1">Diseñado para ser informativo y accesible.</p>
+    </footer>
+
+    <script>
+        // Script para el año actual en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Constantes para la navegación y secciones
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('main section'); // Asegúrate que esto seleccione las secciones correctas
+
+        // Nuevo highlight de sección con IntersectionObserver
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const sectionId = entry.target.getAttribute('id');
+                const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+
+                if (navLink) {
+                    if (entry.isIntersecting) {
+                        navLink.classList.add('active', 'bg-yellow-400', 'text-slate-800');
+                        navLink.setAttribute('aria-selected', 'true');
+                    } else {
+                        navLink.classList.remove('active', 'bg-yellow-400', 'text-slate-800');
+                        navLink.setAttribute('aria-selected', 'false');
+                    }
+                }
+            });
+        }, {
+            rootMargin: '0px 0px -60% 0px'  // el 40% superior de la viewport para activar el link
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+            // Asignar aria-labelledby a cada panel de pestaña
+            const navLink = document.querySelector(`nav a[href="#${section.id}"]`);
+            if (navLink) {
+                navLink.id = section.id + "-tab"; // Crear un ID para el enlace/tab
+                section.setAttribute('aria-labelledby', navLink.id);
+            }
+        });
+
+        // No se necesita JavaScript para la funcionalidad del acordeón con <details> y <summary>
+        // El CSS maneja la animación de apertura/cierre.
+    </script>
+
+</body>
+</html>
